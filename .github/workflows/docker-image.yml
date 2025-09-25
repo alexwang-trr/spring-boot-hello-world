@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PROJECT_KEY: default # Set the desired project to run the cli scanning with
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,3 +26,16 @@ jobs:
 
       - name: Build Docker image
         run: docker build . -t spring-boot-test:latest
+
+      # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Orca Container Image Scan
+        uses: orcasecurity/shiftleft-container-image-action@v1
+        with:
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: ${{ env.PROJECT_KEY }}
+          image: <image to scan>
+          output:
+            "results/"
