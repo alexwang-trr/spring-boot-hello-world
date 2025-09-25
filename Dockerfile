@@ -11,8 +11,8 @@ WORKDIR /app
 # Copy the source code
 COPY src src
 
-# Package the application
-RUN ./mvnw package -DskipTests
+# # Package the application
+# RUN ./mvnw package -DskipTests
 
 # Expose the port the app runs on
 EXPOSE 8080
