@@ -4,9 +4,9 @@ FROM openjdk:17-jdk-alpine
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Maven wrapper and pom.xml files
-COPY mvnw* pom.xml .
-COPY .mvn .mvn
+# # Copy the Maven wrapper and pom.xml files
+# COPY mvnw* pom.xml .
+# COPY .mvn .mvn
 
 # Copy the source code
 COPY src src
