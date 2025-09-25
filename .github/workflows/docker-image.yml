@@ -27,9 +27,9 @@ jobs:
       - name: Build Docker image
         run: docker build . -t spring-boot-test:latest
 
-      # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    #   # Checkout your repository under $GITHUB_WORKSPACE, so your job can access it
+    #   - name: Checkout Repository
+    #     uses: actions/checkout@v4
 
       - name: Run Orca Container Image Scan
         uses: orcasecurity/shiftleft-container-image-action@v1
